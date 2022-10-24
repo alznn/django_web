@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        function dataParser(text){
+            var formdata = new FormData()
+            formdata.append('text',text)
+            axios.post("http://140.115.51.157:8080/polls/get_Mood",formdata,{
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                    }
+                }
+            )
+            .then(function (response){
+                console.log(response)
+                console.log($("#info"))
+                $("#mood").text("mood is " + response.data['mood']+" cost in "+response.data['time_cost']+" secs")         
+                // $("#mood").text("mood is : " + response.data['mood'])         
+            })
+            .catch(function(error){
+                console.log(error)
+            });
+
+            // var formData = new FormData();
+            // formData.append('passage',pas)
+            // formData.append('question',que)
+            
+            // axios.post('http://140.115.51.157:8080/polls/get_request', formData, {
+            //     headers: {
+            //         'Content-Type': 'multipart/form-data'
+            //         }
+            //     }
+            // )
+            // .then(function (response) {
+            //     console.log(response);
+            //     console.log($("#info"))
+            //     $("#answer").text("Answer is : " + response.data['answer']+" cost in "+response.data['time_cost']+" secs")                
+
+            // })
+            // .catch(function (error) {
+            //     console.log(error);
+            // });
+
+        }
+    </script>
+</head>
+<body>
+    <h2 style="font-weight:bold";> Sentiment Analysis Demo Page</h2>
+    <p id='info'>請在下方任意輸入一串句子，並按下 Analyze! 進行情緒分析 <br></br></p>
+    <p id='Example' style="font-weight:bold"; >Example：</p>
+    <p id='Example_string'>
+        Input：今天天氣真好！        output：愉快或喜悅
+        <br></br>Input：這餅乾超難吃的        output：厭惡或低落
+        <br></br>Input：這產品也太雷了吧        output：憤怒或不悅 <br></br>
+    </p>
+    <p id='InputArea' style="font-weight:bold"; >Input Area：</p>
+    <textarea id='text_mood' placeholder="your passage" rows="5" cols="120"></textarea>
+    <p id='info' style="font-weight:bold"; >答案：<br></br></p>
+    <p id='mood'></p>
+    <button id='predict'; style="font-weight:bold";>  Analyze! </button>
+    
+
+</body>
+<script type="text/javascript">
+    $(function(){
+        var button =document.getElementById('predict');
+        button.onclick = function(){
+            var text = $('#text_mood')
+            console.log('console', text.val())
+            console.log('aaaa')
+            dataParser(text.val());
+            $("#mood").text('Model loading, please wait a mintue')    
+        };
+        
+    });
+</script>
+</html>

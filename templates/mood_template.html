@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    </script>
+</head>
+<body>
+    <h2 style="font-weight:bold";> Sentiment Analysis Demo Page</h2>
+    <p id='info'>請在下方任意輸入一串句子，並按下 Analyze! 進行情緒分析 <br></br></p>
+    <p id='Example' style="font-weight:bold"; >Example：</p>
+    <p id='Example_string'>
+        Input：今天天氣真好！        output：愉快或喜悅
+        <br></br>Input：這餅乾超難吃的        output：厭惡或低落
+        <br></br>Input：這產品也太雷了吧        output：憤怒或不悅 <br></br>
+    </p>
+    <form action="" method="post">
+        <p id='InputArea' style="font-weight:bold"; >Input Area：</p>
+        <textarea name='text_mood' placeholder="your passage" rows="5" cols="120">{{text_a}}</textarea>
+        <p id='info' style="font-weight:bold"; >答案：<br></br></p>
+        <p id='mood'>{{mood}}</p>
+        <button id='predict'; style="font-weight:bold";>  Analyze! </button>
+    </form>
+    
+
+</body>
+</html>

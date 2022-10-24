@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    </script>
+</head>
+<body>
+    <h2 style="font-weight:bold";> Sentiment Analysis Score Demo Page</h2>
+    <p id='info'>請在下方任意輸入一串句子，並按下 Analyze! 進行情緒分析 <br></br>以 1- 10 等級呈現，分數愈低表示情緒愈正向 </p>
+    <p id='Example' style="font-weight:bold"; >Example：</p>
+    <p id='Example_string'>
+        Input：今天天氣真好        output：1
+		<br></br>Input：那再看看吧			output：5
+		<br></br>Input：都可以隨便			output：10
+    </p>
+    <form action="" method="post">
+        <p id='InputArea' style="font-weight:bold"; >Input Area：</p>
+        <textarea name='text_mood' placeholder="your passage" rows="5" cols="120">{{text_area}}</textarea>
+        <p id='info' style="font-weight:bold"; >答案：<br></br></p>
+        <p id='mood'>{{score}}</p>
+        <button id='predict'; style="font-weight:bold";>  Analyze! </button>
+    </form>
+    
+
+</body>
+</html>

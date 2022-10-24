@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <script type="text/javascript">
+        function getAnswer(pas,que){
+
+            var formData = new FormData();
+            formData.append('passage',pas)
+            formData.append('question',que)
+            
+            axios.post('http://140.115.51.157:8080/polls/get_request', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                    }
+                }
+            )
+            .then(function (response) {
+                console.log(response);
+                console.log($("#info"))
+                $("#answer").text("Answer is : " + response.data['answer']+" cost in "+response.data['time_cost']+" secs")                
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+        
+    </script> -->
+</head>
+<body>
+    <h2 style="font-weight:bold";>Information</h2>
+    <p id="information">
+        此 demo 網站為利用 DRCD 與 kaggle dataset 訓練 BERT 模型進行 Question-Answering 任務。<br></br>
+        請在文章欄位輸入文本，在問題欄位輸入測試問題。<br></br>
+        並按下 predict 按鈕取得預測答案<br></br>
+    </p>
+
+    <p style="font-weight:bold";>範例: </p>
+
+    <p id='pasa_ex'> 
+            passage：<br></br>塑化劑是一種「環境荷爾蒙」，又稱內分泌干擾物，指會干擾生物體內分泌之外因性化學物質。若長時間高劑量使用 DEHP，將導致男嬰生殖器發育不良、女童性早熟，以及成年男性精蟲減少等問題。常見塑化劑可分成八種，其中 DEHP 在人體代謝快速，大部分代謝物會於 24 到 48 小時內排出體外；DINP 則是在 72 小時內由糞便或尿液排出。因此，若非大量食用，其實並沒有立即的安全問題。
+            <br></br>
+            question：<br></br>若長時間使用哪一種塑化劑會使男嬰生殖器發育不良、女童性早熟，以及成年男性精蟲減少等問題。
+     </p>
+     <form action="" method="post">
+            <h3 style="font-weight:bold";>文章：</h3>
+            <textarea name = 'passage' placeholder="your passage" rows="5" cols="120">{{passage}}</textarea>
+            <h3 style="font-weight:bold";>問題：</h3>
+            <textarea name = 'question' placeholder="your question" rows="3" cols="120">{{question}}</textarea>
+            
+            <p id='info' style="font-weight:bold"; >答案：<br></br></p>
+            <p id='answer'>{{answer}}</p>
+            
+            <button id="predict"; style="font-weight:bold"; >預測</button>
+     </form>
+    
+
+    
+
+    </body>
+    <!-- <script type="text/javascript">
+            $(function() {
+            console.log( "ready!" );
+            var button =document.getElementById('predict');
+            console.log(button)
+            button.onclick  = function(){
+                var pasa = $('#passage');
+                var que  = document.getElementById('question');
+                getAnswer(pasa.val(),que.value);
+                $("#answer").text('Model loading, please wait a mintue')         
+            };
+        });           
+        </script> -->
+
+</html>
